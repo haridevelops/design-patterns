@@ -11,6 +11,17 @@ public class ChainOfResponsibility {
 		log1.setSuccessor(log2);
 		log2.setSuccessor(log3);
 		
+		perform(log1);
+		
+		// append next feature
+		Logger logger = new ConsoleLogger(LogLevel.all())
+				.appendNext(new EmailLogger(LogLevel.FUNCTIONAL_MESSAGE, LogLevel.FUNCTIONAL_ERROR))
+				.appendNext(new FileLogger(LogLevel.WARNING, LogLevel.ERROR));
+		
+		perform(logger);
+	}
+	
+	public static void perform(Logger log1) {
 		log1.message("Entering function ProcessOrder().", LogLevel.DEBUG);
 		log1.message("Order record retrieved.", LogLevel.INFO);
 
@@ -23,6 +34,5 @@ public class ChainOfResponsibility {
 
         // Handled by consoleLogger and emailLogger
 		log1.message("Order Dispatched.", LogLevel.FUNCTIONAL_MESSAGE);
-		
 	}
 }

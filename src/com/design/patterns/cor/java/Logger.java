@@ -17,4 +17,9 @@ public abstract class Logger {
     
     abstract void message(String msg, LogLevel severity);
 
+    public Logger appendNext(Logger logger) {
+    	this.setSuccessor(logger);
+    	return this;
+    }
+    
 }
