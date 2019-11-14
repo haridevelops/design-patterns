@@ -2,10 +2,6 @@ package com.headfirst.learning.design.factory.pattern;
 
 public class MedicalInsurance extends Insurance {
 
-	static {
-		InsuranceFactory.storeInFactory("Medical", MedicalInsurance.class);
-	}
-	
 	public MedicalInsurance() { }
 	
 	@Override

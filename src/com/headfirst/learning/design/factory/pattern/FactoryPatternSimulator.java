@@ -1,7 +1,5 @@
 package com.headfirst.learning.design.factory.pattern;
 
-import java.lang.reflect.InvocationTargetException;
-
 public class FactoryPatternSimulator {
 
 	static {
@@ -9,7 +7,7 @@ public class FactoryPatternSimulator {
 		InsuranceFactory.storeInFactory("Life", LifeInsurance.class);
 	}
 	
-	public static void main(String[] args) throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
+	public static void main(String[] args) {
 		Insurance instance = InsuranceFactory.getInstance("Medical");
 		System.out.println(instance.getInsuranceName());
 		Insurance instance1 = InsuranceFactory.getInstance("Life");

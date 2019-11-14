@@ -2,10 +2,6 @@ package com.headfirst.learning.design.factory.pattern;
 
 public class LifeInsurance extends Insurance {
 
-	static {
-		InsuranceFactory.storeInFactory("Life", LifeInsurance.class);
-	}
-	
 	public LifeInsurance() { }
 	
 	@Override
